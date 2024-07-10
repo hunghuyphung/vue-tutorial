@@ -1,0 +1,26 @@
+- Data binding use text interpolation(Mustaches): {{ dataName }}. Ex: <span>Message: {{ msg }}</span>
+
+- {{ Only-expression }}
+Ex: + This is a statement {{ var a = 1 }} --> wrong
+
+    + Flow control {{ if (ok) { return message } }} --> wrong
+
+- Vue supply special attributes: v-html, v-bind, v-if,...
+
+- Html attribute binding: mustaches cannot be used inside HTML attributes. Instead, use a v-bind directive
+<div v-bind:id="dataName"></div> => shorthand: <div :id="dynamicId"></div>
+
+- If the attribute has the same name with the JavaScript value being bound,
+  the syntax can be further shortened to omit the attribute value:
+<div :id="id"></div> => shorthand syntax: <div :id></div>
+
+- Object Binding:
+Ex const objectOfAttrs = {
+     id: 'container',
+     class: 'wrapper',
+     style: 'background-color:green'
+   }
+
+   <div v-bind="objectOfAttrs"></div>
+
+- v-on <a v-on:click="doSomething"> ... </a> => shorthand: <a @click="doSomething"> ... </a>
