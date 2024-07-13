@@ -24,3 +24,19 @@ Ex const objectOfAttrs = {
    <div v-bind="objectOfAttrs"></div>
 
 - v-on <a v-on:click="doSomething"> ... </a> => shorthand: <a @click="doSomething"> ... </a>
+
+- State management
+-- Ref
++ declare: const state = ref(obj). Ref is used for primitive types.
++ suited for accessing and manipulating DOM elements directly => The changes will not trigger a re-render
++ Create a reference to state(imagine java heap obj)
+
+-- Reactive
++ use method: const state = reactive(obj). Reactive is used for objects
++ Trigger a re-render
+
+- Tracking complex logic for reactive data (reactive declared state) use computed(special Ref)
++ a computed ref: const publishedBooksMessage = computed(() => {
+  return author.books.length > 0 ? 'Yes' : 'No'
+})
++ useful for method invocation caching
