@@ -1,20 +1,18 @@
-- Data binding use text interpolation(Mustaches): {{ dataName }}. Ex: <span>Message: {{ msg }}</span>
+1. Data binding use text interpolation(Mustaches): {{ dataName }}. Ex: <span>Message: {{ msg }}</span>
 
 - {{ Only-expression }}
 Ex: + This is a statement {{ var a = 1 }} --> wrong
 
     + Flow control {{ if (ok) { return message } }} --> wrong
-
-- Vue supply special attributes: v-html, v-bind, v-if,...
-
-- Html attribute binding: mustaches cannot be used inside HTML attributes. Instead, use a v-bind directive
+2. Vue supply special attributes: v-html, v-bind, v-if:v-else,...
+3. Html attribute binding: mustaches cannot be used inside HTML attributes. Instead, use a v-bind directive
 <div v-bind:id="dataName"></div> => shorthand: <div :id="dynamicId"></div>
 
-- If the attribute has the same name with the JavaScript value being bound,
+4. If the attribute has the same name with the JavaScript value being bound,
   the syntax can be further shortened to omit the attribute value:
 <div :id="id"></div> => shorthand syntax: <div :id></div>
 
-- Object Binding:
+5. Object Binding:
 Ex const objectOfAttrs = {
      id: 'container',
      class: 'wrapper',
@@ -23,9 +21,9 @@ Ex const objectOfAttrs = {
 
    <div v-bind="objectOfAttrs"></div>
 
-- v-on <a v-on:click="doSomething"> ... </a> => shorthand: <a @click="doSomething"> ... </a>
+6. v-on <a v-on:click="doSomething"> ... </a> => shorthand: <a @click="doSomething"> ... </a>
 
-- State management
+7. State management
 -- Ref
 + declare: const state = ref(obj). Ref is used for primitive types.
 + suited for accessing and manipulating DOM elements directly => The changes will not trigger a re-render
@@ -35,7 +33,7 @@ Ex const objectOfAttrs = {
 + use method: const state = reactive(obj). Reactive is used for objects
 + Trigger a re-render
 
-- Tracking complex logic for reactive data (reactive declared state) use computed(special Ref)
+8. Tracking complex logic for reactive data (reactive declared state) use computed(special Ref)
 + a computed ref: const publishedBooksMessage = computed(() => {
   return author.books.length > 0 ? 'Yes' : 'No'
 })
